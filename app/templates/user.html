@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block app_content %}
+	<h1> User: {{ user }} </h1>
+	<table class="table">
+	<thead class="thead-dark">
+		<tr>
+			<th scope="col">Title</th>
+			<th scope="col">Value</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Name</td>
+			<td>{{ information.name.encode("ascii")}} {{ information.surname.encode("ascii") }}</td>
+			
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td> {{ information.address }}<td>
+		</tr>
+		<tr>
+			<td>10th Marks</td>
+			<td> {{ information.tenth }}%</td>
+		</tr>
+
+			
+		<tr>
+			<td>12th Marks</td>
+			<td> {{ information.twelfth }}%</td>
+		</tr>
+		<tr>
+			<td>Domicile</td>
+			<td> {{ information.domicile }}</td>
+		</tr>
+	</tbody>
+	</table>
+    </hr>
+
+    {% endblock %}

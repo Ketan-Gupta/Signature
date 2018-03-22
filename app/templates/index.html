@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block app_content %}
+   <div class="col-md-4">
+	<h1 class="text-center"> Welcome {{current_user.username}} </h1>
+	<hr>
+	<br>
+	<br>
+	{% for info in posts %}
+	<div>
+	<dl> 
+	<dt>{{info.title}}</dt>  
+	 <dd>{{info.information}}</dd>
+	</dl>
+        </p>
+         </div>
+	{% endfor %}
+   </div>
+	
+{% endblock %}
+
