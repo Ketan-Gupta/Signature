@@ -1,5 +1,6 @@
+import os, random
 import jwt
-from datetime import datetime
+from datetime import datetime, date
 from app import db, app
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -12,7 +13,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     info = db.relationship('Information', backref='owner', lazy='dynamic')
-
+    docs = db.relationship('Documents', backref='owner', lazy='dynamic')
+    vid = db.relationship('VirtualID', backref='owner', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -41,6 +43,8 @@ class Information(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(15), index=True)
     surname = db.Column(db.String(20), index=True)
+    phone = db.Column(db.Integer, index=True, unique=True)
+    dob = db.Column(db.DateTime, index=True)
     domicile=db.Column(db.String(25), index=True)
     tenth=db.Column(db.Integer, index=True)
     twelfth= db.Column(db.Integer, index=True)
@@ -52,7 +56,28 @@ class Information(db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
-    
+
+class Documents(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    aadhar = db.Column(db.String(100), index=True)
+    tenth= db.Column(db.String(100), index=True)
+    twelfth = db.Column(db.String(100), index=True)
+    domicile = db.Column(db.String(100), index=True)
+    birth = db.Column(db.String(100), index=True)
+
+    def __repr__(self):
+        return '<Image Path: {}>'.format(self.body)
+
+
+class VirtualID(db.Model):
+    id=db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    virtual_id=db.Column(db.Integer, index=True, unique=True)
+
+    def __repr__(self):
+        return '<VirtualID: {}>'.format(self.body)
+
 
 @login.user_loader
 def load_user(id):

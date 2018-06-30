@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block app_content %}
+	<h4> User: {{username }} Document: {{document.title()}}</h4>
+	<hr>
+	<img src="{{url_for('static', filename=path_name)}}"  class="img-thumbnail" alt="Document">
+	{% endblock %}
+

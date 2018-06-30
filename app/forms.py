@@ -1,7 +1,9 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileRequired, FileAllowed
 from wtforms import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, ValidationError, Email, EqualTo
 from app.models import User
+
 
 class LoginForm(FlaskForm):
     username=StringField('Username', validators=[DataRequired()])
@@ -37,4 +39,10 @@ class ResetPasswordForm(FlaskForm):
     password2 = PasswordField('Password Again', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Request Password Reset')
 
-    
+class UploadForm(FlaskForm):
+    photo = FileField('Image', validators=[FileRequired(), FileAllowed(['jpg'], 'Please upload an Image')])
+    submit = SubmitField('Upload')
+
+class VirtualIDForm(FlaskForm):
+    submit = SubmitField('Generate Virtual ID')
+

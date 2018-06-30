@@ -1,6 +1,9 @@
+
 {% extends "base.html" %}
+
+
 {% block app_content %}
-	<h1> User: {{ user }} </h1>
+
 	<table class="table">
 	<thead class="thead-dark">
 		<tr>
@@ -19,6 +22,10 @@
 			<td> {{ information.address }}<td>
 		</tr>
 		<tr>
+			<td>Number</td>
+			<td>{{ information.phone }}</td>
+		</tr>
+		<tr>
 			<td>10th Marks</td>
 			<td> {{ information.tenth }}%</td>
 		</tr>
@@ -32,6 +39,19 @@
 			<td>Domicile</td>
 			<td> {{ information.domicile }}</td>
 		</tr>
+		<tr>
+			<td>Date of Birth</td>
+			<td> {{ information.dob }}</td>
+		</tr>
+		<tr>
+			<td>Address</td>
+			<td>{{ information.address }}</td>
+		</tr>
+		<tr>
+			<td>University CGPA</td>
+			<td> {{ information.university }}</td>
+		</tr>
+		
 	</tbody>
 	</table>
     </hr>

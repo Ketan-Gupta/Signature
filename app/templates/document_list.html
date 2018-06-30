@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block app_content %}
+<h1> Document Section: User- {{ username }}</h1>
+<hr>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr><th scope="col">Documents</th></tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><a href="{{url_for('aadhar', username=username)}}">Aadhar Card</a></td>
+			</tr>
+			<tr>
+				<td><a href="{{url_for('birth', username=username)}}">Birth Certificate<a></td>
+			</tr>
+			<tr>
+				<td><a href="{{url_for('domicile', username=username)}}">Domicile Certificate<a></td>
+			</tr>
+			<tr>
+				<td><a href="{{url_for('tenth', username=username)}}">10th Marksheet</a></td>
+			</tr>
+			<tr>
+				<td><a href="{{url_for('twelfth', username=username)}}">12th Marksheet </a></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+
+{% endblock %}
