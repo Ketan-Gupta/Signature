@@ -56,7 +56,7 @@ swampy==2.1.7
 Twisted==16.0.0
 uniconvertor==1.1.5
 unity-lens-photos==1.0
-urllib3==1.22
+urllib3==1.26.5
 visitor==0.1.3
 Werkzeug==0.15.3
 WTForms==2.1
