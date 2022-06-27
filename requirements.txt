@@ -46,7 +46,7 @@ python-editor==1.0.3
 python-libtorrent==1.0.7
 pytz==2018.3
 pyxdg==0.25
-reportlab==3.3.0
+reportlab==3.5.55
 requests==2.18.4
 scour==0.32
 service-identity==16.0.0
